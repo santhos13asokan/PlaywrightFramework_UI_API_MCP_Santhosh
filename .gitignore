@@ -1,0 +1,17 @@
+# Dependencies
+**/node_modules/
+
+# Playwright and Allure generated output
+**/test-results/
+**/playwright-report/
+**/allure-results/
+**/allure-report/
+**/blob-report/
+**/.playwright-mcp/
+**/playwright/.cache/
+**/playwright/.auth/
+
+# Local environment files
+**/.env.*
+!**/.env
+!.env.example
