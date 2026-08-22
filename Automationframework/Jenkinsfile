@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    environment {
+        CI = 'true'
+        
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                
+                bat 'npm ci' 
+            }
+        }
+
+        stage('Install Playwright Browsers') {
+            steps {
+               
+                bat 'npx playwright install --with-deps' // Use 'sh' if Linux
+            }
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+               
+                bat 'npx playwright test' 
+            }
+        }
+    }
+
+    post {
+        always {
+           
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Test Report'
+            ])
+           
+            archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: true
+        }
+        success {
+            echo 'Playwright Test Suite passed!'
+        }
+        failure {
+            echo 'Playwright Test Suite failed.'
+        }
+    }
+}
