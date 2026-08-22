@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS-26'
+        
+        nodejs 'NodeJS-24'
     }
 
     parameters {
@@ -40,18 +41,22 @@ pipeline {
         stage('Run Playwright tests') {
             steps {
                 dir('Automationframework') {
-                    bat 'set ENV=%ENV%&& set BROWSER=%BROWSER%&& npm test'
+                    bat 'set "ENV=%ENV%" && set "BROWSER=%BROWSER%" && npm test'
                 }
             }
         }
-
     }
 
     post {
         always {
+            // Generate Allure report safely (continues even if error occurs)
             dir('Automationframework') {
-                bat 'npm run allure:generate'
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                    bat 'npm run allure:generate'
+                }
             }
+
+            // Publish Playwright HTML Report
             publishHTML(target: [
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
@@ -60,6 +65,8 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Playwright Test Report'
             ])
+
+            // Publish Allure HTML Report
             publishHTML(target: [
                 allowMissing: true,
                 alwaysLinkToLastBuild: true,
@@ -68,6 +75,7 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Allure Test Report'
             ])
+
             archiveArtifacts artifacts: 'Automationframework/test-results/**/*, Automationframework/allure-results/**/*, Automationframework/allure-report/**/*', allowEmptyArchive: true
         }
         success {
