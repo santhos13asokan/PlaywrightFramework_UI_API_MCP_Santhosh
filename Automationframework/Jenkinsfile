@@ -2,53 +2,73 @@ pipeline {
     agent any
 
     tools {
-       
         nodejs 'NodeJS-26'
     }
 
+    parameters {
+        choice(name: 'ENV', choices: ['dev', 'test'], description: 'Environment to test')
+        choice(name: 'BROWSER', choices: ['chromium', 'firefox', 'webkit', 'all'], description: 'Browser project to run')
+    }
+
+    environment {
+        CI = 'true'
+    }
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install dependencies') {
             steps {
-                
-                bat 'npm ci' 
+                dir('Automationframework') {
+                    bat 'npm ci'
+                }
             }
         }
 
-        stage('Install Playwright Browsers') {
+        stage('Install Playwright browsers') {
             steps {
-               
-                bat 'npx playwright install --with-deps' // Use 'sh' if Linux
+                dir('Automationframework') {
+                    bat 'npx playwright install'
+                }
             }
         }
 
-        stage('Run Playwright Tests') {
+        stage('Run Playwright tests') {
             steps {
-               
-                bat 'npx playwright test' 
+                dir('Automationframework') {
+                    bat 'set ENV=%ENV%&& set BROWSER=%BROWSER%&& npm test'
+                }
             }
         }
+
     }
 
     post {
         always {
-           
+            dir('Automationframework') {
+                bat 'npm run allure:generate'
+            }
             publishHTML(target: [
-                allowMissing: false,
+                allowMissing: true,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'playwright-report',
+                reportDir: 'Automationframework/playwright-report',
                 reportFiles: 'index.html',
                 reportName: 'Playwright Test Report'
             ])
-           
-            archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: true
+            publishHTML(target: [
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'Automationframework/allure-report',
+                reportFiles: 'index.html',
+                reportName: 'Allure Test Report'
+            ])
+            archiveArtifacts artifacts: 'Automationframework/test-results/**/*, Automationframework/allure-results/**/*, Automationframework/allure-report/**/*', allowEmptyArchive: true
         }
         success {
             echo 'Playwright Test Suite passed!'
