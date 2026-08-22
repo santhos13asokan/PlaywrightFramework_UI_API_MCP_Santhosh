@@ -1,0 +1,4 @@
+[    1190ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://practicesoftwaretesting.com/auth/login:0
+[    1764ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0
+[    1766ms] [ERROR] ERROR {message: Unauthorized} @ https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:6
+[    2227ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0

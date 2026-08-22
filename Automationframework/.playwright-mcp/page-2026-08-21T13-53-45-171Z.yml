@@ -1,0 +1,50 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e3]:
+    - text: View the
+    - link "Documentation" [ref=f7e4] [cursor=pointer]:
+      - /url: https://testsmith-io.github.io/practice-software-testing/#/
+    - text: for this application.
+  - generic [ref=f7e5]:
+    - generic [ref=f7e7]:
+      - generic [ref=f7e8]: Practice Black Box Testing & Bug Hunting
+      - button "Testing Guide" [ref=f7e9] [cursor=pointer]
+      - button "🐛 Bug Hunting" [ref=f7e10] [cursor=pointer]
+    - navigation [ref=f7e11]:
+      - generic [ref=f7e12]:
+        - link "Practice Software Testing - Toolshop" [ref=f7e13] [cursor=pointer]:
+          - /url: /
+        - generic [ref=f7e32]:
+          - menubar "Main menu" [ref=f7e33]:
+            - menuitem [ref=f7e34]:
+              - link "Home" [ref=f7e35] [cursor=pointer]:
+                - /url: /
+            - menuitem [ref=f7e36]:
+              - button "Categories" [ref=f7e37] [cursor=pointer]
+            - menuitem [ref=f7e38]:
+              - link "Contact" [ref=f7e39] [cursor=pointer]:
+                - /url: /contact
+            - menuitem [ref=f7e40]:
+              - link "Sign in" [ref=f7e41] [cursor=pointer]:
+                - /url: /auth/login
+            - menuitem [ref=f7e42]:
+              - link "cart" [ref=f7e43] [cursor=pointer]:
+                - /url: /checkout
+                - generic [ref=f7e47]: "1"
+          - button "Select language" [ref=f7e49] [cursor=pointer]: EN
+  - contentinfo [ref=f7e54]:
+    - generic [ref=f7e55]:
+      - text: This is a DEMO application (
+      - link "GitHub repo" [ref=f7e56] [cursor=pointer]:
+        - /url: https://github.com/testsmith-io/practice-software-testing
+      - text: ), used for software testing training purpose. |
+      - link "Privacy Policy" [ref=f7e57] [cursor=pointer]:
+        - /url: /privacy
+      - text: "| Banner photo by"
+      - link "Barn Images" [ref=f7e58] [cursor=pointer]:
+        - /url: https://unsplash.com/@barnimages
+      - text: "on"
+      - link "Unsplash" [ref=f7e59] [cursor=pointer]:
+        - /url: https://unsplash.com/photos/t5YUoHW6zRo
+      - text: .
+    - generic [ref=f7e60]: v2.4 | Built 2026-08-14 | Angular 20.0.5
+  - button "Open chat" [ref=f7e62] [cursor=pointer]

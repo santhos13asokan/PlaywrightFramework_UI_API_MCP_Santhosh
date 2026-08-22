@@ -1,0 +1,18 @@
+[     312ms] [ERROR] ERROR v: NG04002: 'cart'
+    at Dh.noMatchError (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:8:58164)
+    at https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:8:58903
+    at https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:20058
+    at Eu._error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:5478)
+    at Eu.error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2583)
+    at Eu._error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2823)
+    at Eu.error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2583)
+    at Eu._error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2823)
+    at Eu.error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2583)
+    at Eu._error (https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:3:2823) @ https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:6
+[    1215ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0
+[    1768ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0
+[    1773ms] [ERROR] ERROR {message: Unauthorized} @ https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:6
+[    4771ms] [WARNING] The resource https://practicesoftwaretesting.com/assets/img/barn-2400x1600.avif was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://practicesoftwaretesting.com/:0
+[  628471ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0
+[  628479ms] [ERROR] ERROR {message: Unauthorized} @ https://practicesoftwaretesting.com/chunk-JBAH3FYV.js:6
+[  629011ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ https://api.practicesoftwaretesting.com/users/me:0
