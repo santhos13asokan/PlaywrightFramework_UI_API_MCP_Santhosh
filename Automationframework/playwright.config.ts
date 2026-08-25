@@ -63,7 +63,7 @@ export default defineConfig({
   
   retries: process.env.CI ? 2 : 0,
   
-  workers: process.env.CI ? 3: undefined,
+  workers: 2,
 
  
   
@@ -80,7 +80,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: !process.env.CI,
+    headless: false
     
   },
 
